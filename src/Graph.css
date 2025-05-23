@@ -1,0 +1,16 @@
+
+.graph .graph1{
+    margin-top: 120px;
+}
+.graph .graph1 h3{
+    display: inline;
+    margin-left: -500px;
+}
+.graph p{
+    line-height: 8px;
+    text-align: justify;
+    display: inline;
+}
+.graph{
+    width:700px;
+}
