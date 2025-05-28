@@ -1,3 +1,4 @@
+HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Diet_Sync
+A smart web app that creates personalized meal plans based on user goals, preferences, and health data. Features include recipe suggestions, calorie tracking, progress monitoring, grocery lists, and admin dashboards for content and user management.
+ 018c31146cbdd4d1ba025b1ecf93c7124941a9cf
