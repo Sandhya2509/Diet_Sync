@@ -1,0 +1,23 @@
+
+.header input[type=text]{
+    border-radius: 15px;
+    margin-top: 5px;
+    height: 25px;
+    width: 400px;
+    display: inline;
+    padding-left: 30px;
+}
+
+p{
+    display: inline;
+    padding-left: 50px;
+}
+.header1{
+    height: 50px;
+    margin-top: 10px;
+}
+.header .icon {
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+    background-size: 20px;;
+  }

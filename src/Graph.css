@@ -1,16 +1,147 @@
-
-.graph .graph1{
+.graph {
+    width: 650px;
+  }
+  
+  .graph .graph1 {
     margin-top: 120px;
-}
-.graph .graph1 h3{
-    display: inline;
-    margin-left: -500px;
-}
-.graph p{
-    line-height: 8px;
-    text-align: justify;
-    display: inline;
-}
-.graph{
-    width:700px;
-}
+  }
+  
+  .graph-header,
+  .report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .graph-header h3,
+  .report-header h3 {
+    margin: 0;
+    font-weight: bold;
+    margin-right: auto;
+  }
+  
+  .graph-options,
+  .report-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .graph-options p,
+  .report-options p {
+    margin: 0;
+    cursor: pointer;
+    font-size: smaller;
+    font-weight: 600;
+  }
+  
+  .report-graph {
+    width: 350px;
+    float: right;
+    margin-right: 100px;
+  }
+  .report-graph .graph1{
+    margin-top: -40px;
+  }
+ 
+  .meal-recommendation {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  .meal-section,
+  .recommend-section {
+    flex: 1;
+    background: #fff;
+  }
+  
+  .meal-section h3{
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+  }
+  .recommend-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table th,
+  table td {
+    text-align: left;
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  
+  .recommend-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+  }
+  
+  .recommend-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .recommend-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .recommend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .icon.purple {
+    background-color: #b39ddb;
+  }
+  
+  .icon.green {
+    background-color: #a5d6a7;
+  }
+  
+  .icon.yellow {
+    background-color: #fff176;
+    color: black;
+  }
+  
+  .tags button {
+    background: #f4f4f4;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  .meal-recommendation .recommend-header{
+    margin-top: -15px;
+  }

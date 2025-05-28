@@ -1,0 +1,59 @@
+
+
+.main .div1{
+    float: left;
+    width: 10%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 20px;
+    background-color: rgb(199, 187, 230);
+}
+
+.main .div2{
+    float: left;
+    width: 10%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color: beige;
+}
+.main .div3{
+    float: left;
+    width: 10%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color: pink;
+}
+.main .div4{
+    float: left;
+    width: 10%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color: bisque;
+    
+}
+.main .div5{
+    float: left;
+    width: 10%;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top: 20px;
+    background-color: rgb(196, 223, 177);
+    
+}
+.main{
+    padding-left: 300px;
+    padding-top: 30px;
+}

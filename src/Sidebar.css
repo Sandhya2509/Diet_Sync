@@ -1,0 +1,11 @@
+
+.sidebar ul{
+    list-style-type: none;
+    float: left;
+}
+
+.sidebar ul li{
+    margin-top: 40px;
+    font-size: smaller;
+    
+}
