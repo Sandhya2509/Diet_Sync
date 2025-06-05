@@ -1,0 +1,180 @@
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #dbe6f6, #c5796d);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .day-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .day-tabs button {
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .day-tabs button:hover {
+      background: #2980b9;
+    }
+
+    .day-tabs button.active {
+      background: #2ecc71;
+    }
+
+    .meal-section {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .meal-section:hover {
+      transform: scale(1.01);
+    }
+
+    .meal-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 6px;
+    }
+
+    .meal {
+      font-size: 17px;
+      background: #f1f1f1;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .meal:hover {
+      background: #dfe6e9;
+    }
+
+    .ingredients {
+      display: none;
+      background: #fafafa;
+      padding: 10px 16px;
+      border-left: 4px solid #7f8c8d;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      margin-top: 8px;
+      color: #555;
+    }
+
+    .chart-container {
+      width: 100px;
+      margin: 0 auto 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .chat-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 40px auto 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .chat-container h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .chat-box {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f9f9f9;
+      margin-bottom: 10px;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .chat-input button {
+      padding: 10px 16px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .chat-input button:hover {
+      background: #2980b9;
+    }
+
+    @media screen and (max-width: 600px) {
+      .day-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .chart-container {
+        width: 100%;
+      }
+    }
+    .edit-button,
+.add-meal-button {
+  margin-top: 8px;
+  margin-left: 4px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #36A2EB;
+  color: white;
+}
+
+.edit-button:hover,
+.add-meal-button:hover {
+  background-color: #1e88e5;
+}
