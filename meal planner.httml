@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diet Sync Meal Planner </title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" href="diet sync.logo.png" type="image/png">
+  <link rel="stylesheet" href="four.style.css">
+</head>
+<body>
+
+  <h1>Weekly Meal Planner</h1>
+
+  <div class="day-tabs">
+    <button onclick="showDay('Monday', event)" class="active">Mon</button>
+    <button onclick="showDay('Tuesday', event)">Tue</button>
+    <button onclick="showDay('Wednesday', event)">Wed</button>
+    <button onclick="showDay('Thursday', event)">Thu</button>
+    <button onclick="showDay('Friday', event)">Fri</button>
+    <button onclick="showDay('Saturday', event)">Sat</button>
+    <button onclick="showDay('Sunday', event)">Sun</button>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="nutritionChart"></canvas>
+  </div>
+
+  <div id="meal-container"></div>
+
+    <!-- Chat Container -->
+  <div class="chat-container">
+    <h2>Suggestions / Preferences</h2>
+    <div class="chat-box" id="chatBox">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your meal suggestion or preference..." />
+      <button onclick="submitSuggestion()">Send</button>
+    </div>
+
+
+  <script>
+  const meals = {
+    "Monday": {
+      meals: {
+        "Breakfast": { name: "Oatmeal with Fruits", ingredients: ["Oats", "Milk", "Banana", "Honey"] },
+        "Lunch": { name: "Paneer Curry & Rice", ingredients: ["Paneer", "Tomato", "Spices", "Rice"] },
+        "Dinner": { name: "Vegetable Soup", ingredients: ["Carrot", "Peas", "Beans", "Salt"] }
+      },
+      nutrition: { Fat: 40, Protein: 25, Carbs: 35 }
+    },
+    "Tuesday": {
+      meals: {
+        "Breakfast": { name: "Smoothie Bowl", ingredients: ["Banana", "Berries", "Yogurt", "Chia"] },
+        "Lunch": { name: "Chicken Wrap", ingredients: ["Chicken", "Lettuce", "Tortilla"] },
+        "Dinner": { name: "Pasta", ingredients: ["Pasta", "Tomato Sauce", "Cheese"] }
+      },
+      nutrition: { Fat: 30, Protein: 30, Carbs: 40 }
+    },
+    "Wednesday": {
+      meals: {
+        "Breakfast": { name: "Toast and Eggs", ingredients: ["Bread", "Eggs", "Butter"] },
+        "Lunch": { name: "Grilled Fish & Veggies", ingredients: ["Fish", "Broccoli", "Olive Oil"] },
+        "Dinner": { name: "Rice & Lentils", ingredients: ["Rice", "Lentils", "Spices"] }
+      },
+      nutrition: { Fat: 25, Protein: 40, Carbs: 35 }
+    },
+    "Thursday": {
+      meals: {
+        "Breakfast": { name: "Yogurt Parfait", ingredients: ["Yogurt", "Granola", "Strawberries"] },
+        "Lunch": { name: "Quinoa Salad", ingredients: ["Quinoa", "Cucumber", "Tomato", "Feta"] },
+        "Dinner": { name: "Stir Fry Noodles", ingredients: ["Noodles", "Vegetables", "Soy Sauce"] }
+      },
+      nutrition: { Fat: 28, Protein: 32, Carbs: 40 }
+    },
+    "Friday": {
+      meals: {
+        "Breakfast": { name: "Banana Pancakes", ingredients: ["Banana", "Egg", "Oats"] },
+        "Lunch": { name: "Turkey Sandwich", ingredients: ["Turkey", "Bread", "Lettuce", "Cheese"] },
+        "Dinner": { name: "Grilled Chicken", ingredients: ["Chicken Breast", "Spices", "Olive Oil"] }
+      },
+      nutrition: { Fat: 35, Protein: 35, Carbs: 30 }
+    },
+    "Saturday": {
+      meals: {
+        "Breakfast": { name: "Avocado Toast", ingredients: ["Bread", "Avocado", "Egg"] },
+        "Lunch": { name: "Veggie Burger", ingredients: ["Bun", "Lettuce", "Tomato", "Patty"] },
+        "Dinner": { name: "Sushi Rolls", ingredients: ["Rice", "Seaweed", "Fish", "Cucumber"] }
+      },
+      nutrition: { Fat: 30, Protein: 30, Carbs: 40 }
+    },
+    "Sunday": {
+      meals: {
+        "Breakfast": { name: "French Toast", ingredients: ["Bread", "Egg", "Milk", "Cinnamon"] },
+        "Lunch": { name: "Spinach Pasta", ingredients: ["Pasta", "Spinach", "Garlic", "Cream"] },
+        "Dinner": { name: "Pumpkin Soup", ingredients: ["Pumpkin", "Cream", "Spices"] }
+      },
+      nutrition: { Fat: 32, Protein: 28, Carbs: 40 }
+    }
+  };
+
+  let chart;
+
+ function showDay(day, event) {
+  document.querySelectorAll('.day-tabs button').forEach(btn => btn.classList.remove('active'));
+  if (event) event.target.classList.add('active');
+
+  const container = document.getElementById('meal-container');
+  container.innerHTML = "";
+
+  const dayMeals = meals[day]?.meals;
+  for (let meal in dayMeals) {
+    const section = document.createElement('div');
+    section.className = "meal-section";
+
+    const header = document.createElement('div');
+    header.className = "meal-header";
+    header.textContent = meal;
+
+    const mealDiv = document.createElement('div');
+    mealDiv.className = "meal";
+    mealDiv.textContent = dayMeals[meal].name;
+
+    const ingredientList = document.createElement('div');
+    ingredientList.className = "ingredients";
+    ingredientList.innerHTML = "<strong>Ingredients:</strong><br>" + dayMeals[meal].ingredients.join(", ");
+
+    mealDiv.onclick = () => {
+      ingredientList.style.display = ingredientList.style.display === "none" ? "block" : "none";
+    };
+
+    
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.className = "edit-button";
+    editBtn.onclick = () => {
+      const newName = prompt("Edit meal name:", dayMeals[meal].name);
+      if (newName) {
+        dayMeals[meal].name = newName;
+        showDay(day); 
+      }
+    };
+
+    section.appendChild(header);
+    section.appendChild(mealDiv);
+    section.appendChild(ingredientList);
+    section.appendChild(editBtn);
+    container.appendChild(section);
+  }
+
+  
+  const addMealBtn = document.createElement("button");
+  addMealBtn.textContent = "+ Add Meal";
+  addMealBtn.className = "add-meal-button";
+  addMealBtn.onclick = () => {
+    const mealType = prompt("Enter meal type (e.g., Snack):");
+    const mealName = prompt("Enter meal name:");
+    const ingredients = prompt("Enter ingredients (comma separated):");
+
+    if (mealType && mealName && ingredients) {
+      meals[day].meals[mealType] = {
+        name: mealName,
+        ingredients: ingredients.split(",").map(i => i.trim())
+      };
+      showDay(day); 
+    }
+  };
+
+  container.appendChild(addMealBtn);
+
+  updateChart(meals[day].nutrition);
+}
+
+ 
+
+  function updateChart(data) {
+    const ctx = document.getElementById('nutritionChart').getContext('2d');
+    if (chart) chart.destroy();
+    chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Fat', 'Protein', 'Carbs'],
+        datasets: [{
+          data: [data.Fat, data.Protein, data.Carbs],
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  }
+
+  function submitSuggestion() {
+    const input = document.getElementById("userInput");
+    const chatBox = document.getElementById("chatBox");
+
+    if (input.value.trim() === "") return;
+
+    const message = document.createElement("div");
+    message.textContent = "📝 " + input.value;
+    chatBox.appendChild(message);
+
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  showDay("Monday");
+</script>
+
+
+  </div>
+</body>
+</html>
